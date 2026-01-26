@@ -120,4 +120,12 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1200px;
+
+  /* Speaker Card Specific */
+  --speaker-card-width: 280px;
+  --speaker-card-width-mobile-max: 360px;
+  --speaker-card-avatar-size: 120px;
+  --speaker-grid-gap-desktop: var(--spacing-xl);
+  --speaker-grid-gap-tablet: var(--spacing-lg);
+  --speaker-grid-gap-mobile: var(--spacing-lg);
 }
