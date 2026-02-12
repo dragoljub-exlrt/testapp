@@ -317,3 +317,105 @@
   border-radius: var(--radius-sm);
   opacity: 0.8;
 }
+
+/* ==========================================================================
+   Theme Toggle Button
+   ========================================================================== */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-left: var(--spacing-md);
+  margin-right: var(--spacing-md);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+  transform: scale(1.05);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle:focus {
+  outline: none;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+[data-theme="light"] .theme-toggle:focus-visible {
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.theme-toggle__icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--transition-normal),
+              transform var(--transition-normal);
+}
+
+.theme-toggle__icon--light {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle__icon--dark {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+[data-theme="light"] .theme-toggle__icon--light {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+[data-theme="light"] .theme-toggle__icon--dark {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+@media (max-width: 767px) {
+  .header .theme-toggle {
+    display: none;
+  }
+
+  .mobile-nav .theme-toggle {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    margin: 0 0 var(--spacing-lg) 0;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle__icon {
+    transition: opacity 0.01ms;
+  }
+}

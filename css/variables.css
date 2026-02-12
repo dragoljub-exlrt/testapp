@@ -128,4 +128,52 @@
   --speaker-grid-gap-desktop: var(--spacing-xl);
   --speaker-grid-gap-tablet: var(--spacing-lg);
   --speaker-grid-gap-mobile: var(--spacing-lg);
+
+  /* Header scrolled background */
+  --header-bg-scrolled: rgba(10, 10, 15, 0.85);
+}
+
+/* ==========================================================================
+   Light Mode Theme Variables
+   ========================================================================== */
+
+[data-theme="light"] {
+  /* Background & Surfaces */
+  --color-background: #FAFBFC;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #F8F9FA;
+
+  /* Borders */
+  --color-border: #E2E8F0;
+  --color-border-light: #CBD5E1;
+
+  /* Text Colors */
+  --color-text: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94A3B8;
+
+  /* Semantic Colors */
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, #FAFBFC 0%, #F1F5F9 50%, #E2E8F0 100%);
+  --gradient-surface: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%);
+
+  /* Adjusted Glows */
+  --glow-primary: 0 0 40px rgba(99, 102, 241, 0.15);
+  --glow-accent: 0 0 40px rgba(244, 114, 182, 0.1);
+
+  /* Adjusted Shadows */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.07), 0 2px 4px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 10px 15px rgba(15, 23, 42, 0.08), 0 4px 6px rgba(15, 23, 42, 0.04);
+  --shadow-xl: 0 20px 25px rgba(15, 23, 42, 0.1), 0 10px 10px rgba(15, 23, 42, 0.05);
+
+  /* Accent glow adjusted for light mode */
+  --color-accent-glow: rgba(244, 114, 182, 0.15);
+
+  /* Header scrolled background */
+  --header-bg-scrolled: rgba(255, 255, 255, 0.9);
 }

@@ -10,11 +10,70 @@
   document.addEventListener('DOMContentLoaded', init);
 
   function init() {
+    initTheme();
     initStickyHeader();
     initMobileMenu();
     initSmoothScroll();
     initScheduleTabs();
     initFaqAccordion();
+  }
+
+  /* ==========================================================================
+     Theme Toggle
+     ========================================================================== */
+
+  function initTheme() {
+    const themeToggles = document.querySelectorAll('.theme-toggle');
+    if (!themeToggles.length) return;
+
+    function getPreferredTheme() {
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved;
+
+      if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+      }
+
+      return 'dark';
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      updateThemeToggles(theme);
+    }
+
+    function updateThemeToggles(theme) {
+      const isLight = theme === 'light';
+      themeToggles.forEach(toggle => {
+        toggle.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+        toggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+      });
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    }
+
+    setTheme(getPreferredTheme());
+
+    themeToggles.forEach(toggle => {
+      toggle.addEventListener('click', toggleTheme);
+      toggle.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleTheme();
+        }
+      });
+    });
+
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function(e) {
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'light' : 'dark');
+      }
+    });
   }
 
   /* ==========================================================================
